@@ -1,1 +1,8 @@
-Fix fields in scene builder. The parse method needs the format to be hh:mm (you must have a colon).
+-Find a way to clear member variables if one fails to parse - right now correcting the entry and resubmitting does not resubmit the updated info
+-Write JUnit tests
+-Finish exception handling - hours worked must be between 0 & 24
+-Set up tab function between fields
+-Create total hours for the week (need text field)
+-Create button to clear form
+-Create overtime warning if total work week hours exceed 40 hrs
+-Background color could be better
