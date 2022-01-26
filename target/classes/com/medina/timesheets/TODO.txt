@@ -1,0 +1,1 @@
+Fix fields in scene builder. The parse method needs the format to be hh:mm (you must have a colon).
