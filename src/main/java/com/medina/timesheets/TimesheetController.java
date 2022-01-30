@@ -120,21 +120,15 @@ public class TimesheetController {
 
 
         /**
-         * This method calculates the hours worked for each Day object and returns true as long as it doesn't
-         * thrown an exception
-         * @return boolean true if successful; false if not successful
+         * This method calculates the hours worked for each Day object
          */
         public void calculateHoursWorked(){
 
                 addDaysToList();
 
                 try {
-                        for (Day day : fullWeek) {
+                        calc.totalWorkTimePerDay(fullWeek);
 
-                                workHour = calc.findTotalWorkTime(day.getStart(), day.getEnd());
-                                lunchHour = calc.findTotalLunch(day.getLunchStart(), day.getLunchEnd());
-                                day.setTotalWorkHours(calc.calculateHoursWorked(workHour, lunchHour));
-                        }
                 } catch(NullPointerException e){
                         displayAlert(AlertType.ERROR, "Missing or Incorrect Entry",
                                 "Please review your timesheet and ensure all fields "
@@ -149,12 +143,12 @@ public class TimesheetController {
                 }
         }
 
+
         public void displayAlert(AlertType type, String title, String message) {
                 Alert alert = new Alert(type);
                 alert.setTitle(title);
                 alert.setContentText(message);
                 alert.showAndWait();
-
         }
 
         @FXML
@@ -166,7 +160,7 @@ public class TimesheetController {
                       //wednesdayTotal.setText(String.valueOf(wednesday.getTotalWorkHours()));
                       //thursdayTotal.setText(String.valueOf(thursday.getTotalWorkHours()));
                       //fridayTotal.setText(String.valueOf(friday.getTotalWorkHours()));
-
+                      weekTotal.setText(String.valueOf(calc.totalWorkHours(fullWeek)));
         }
     }
 

@@ -18,7 +18,25 @@ public class TimesheetCalculations {
     private long totalTimeInMinutes;
 
 
- 
+    public float totalWorkHours(List <Day> fullWeek){
+
+        float total = 0f;
+
+        for (Day day : fullWeek){
+            total += day.getTotalWorkHours();
+        }
+        return total;
+    }
+
+    public void totalWorkTimePerDay(List <Day> fullWeek) {
+
+        for (Day day : fullWeek) {
+
+            Long workHour = findTotalWorkTime(day.getStart(), day.getEnd());
+            Long lunchHour = findTotalLunch(day.getLunchStart(), day.getLunchEnd());
+            day.setTotalWorkHours(calculateHoursWorked(workHour, lunchHour));
+        }
+    }
 
     public float calculateHoursWorked(long totalWorkTime, long totalLunch) {
         return totalTime = (totalWorkTime - totalLunch) / 60.0f;
@@ -53,6 +71,7 @@ public class TimesheetCalculations {
            return totalTimeInMinutes = totalHours + totalMinutes;
 
     }
+
 }
 
 
