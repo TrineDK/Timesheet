@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,7 +12,16 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #dcdce3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.medina.timesheets.TimesheetController">
-   <center>
+   <bottom>
+      <Button fx:id="calculateButton" mnemonicParsing="false" onAction="#calcTotalTime" prefHeight="25.0" style="-fx-background-color: #fafafc;" text="Calculate Hours" BorderPane.alignment="CENTER">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </BorderPane.margin></Button>
+   </bottom>
+   <left>
       <GridPane alignment="CENTER" gridLinesVisible="true" prefHeight="363.0" prefWidth="595.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="90.0" />
@@ -60,34 +70,14 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextArea fx:id="mStart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <TextArea fx:id="mLunchStart" layoutX="146.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <TextArea fx:id="mLunchEnd" layoutX="235.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <TextArea fx:id="mEnd" layoutX="324.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <TextArea fx:id="mondayTotal" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <TextArea fx:id="mondayTotal" focusTraversable="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></TextArea>
-            <TextArea fx:id="tStart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <TextArea fx:id="tLunchStart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextArea fx:id="tLunchEnd" layoutX="235.0" layoutY="152.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextArea fx:id="tEnd" layoutX="311.0" layoutY="152.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextArea fx:id="tuesdayTotal" layoutX="489.0" layoutY="90.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <TextArea fx:id="wStart" layoutX="146.0" layoutY="152.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextArea fx:id="wLunchStart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextArea fx:id="thLunchStart" layoutX="222.0" layoutY="214.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <TextArea fx:id="thStart" layoutX="222.0" layoutY="214.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <TextArea fx:id="wEnd" layoutX="222.0" layoutY="214.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextArea fx:id="wLunchEnd" layoutX="222.0" layoutY="214.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextArea fx:id="fEnd" layoutX="222.0" layoutY="214.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <TextArea fx:id="fLunchEnd" layoutX="222.0" layoutY="214.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <TextArea fx:id="fLunchStart" layoutX="222.0" layoutY="214.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <TextArea fx:id="fStart" layoutX="222.0" layoutY="214.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <TextArea fx:id="thEnd" layoutX="222.0" layoutY="214.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <TextArea fx:id="thLunchEnd" layoutX="222.0" layoutY="214.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="63.0" promptText="hh : mm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <TextArea fx:id="fridayTotal" layoutX="489.0" layoutY="152.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-            <TextArea fx:id="thursdayTotal" layoutX="489.0" layoutY="152.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <TextArea fx:id="wednesdayTotal" layoutX="489.0" layoutY="152.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <TextArea fx:id="tuesdayTotal" editable="false" focusTraversable="false" layoutX="489.0" layoutY="90.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <TextArea fx:id="fridayTotal" editable="false" focusTraversable="false" layoutX="489.0" layoutY="152.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <TextArea fx:id="thursdayTotal" editable="false" focusTraversable="false" layoutX="489.0" layoutY="152.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <TextArea fx:id="wednesdayTotal" editable="false" focusTraversable="false" layoutX="489.0" layoutY="152.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
             <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="40.0" layoutY="94.0" prefHeight="22.0" prefWidth="80.0" text="Friday:" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <font>
                   <Font size="17.0" />
@@ -108,16 +98,27 @@
                   <Font size="17.0" />
                </font>
             </Label>
+            <TextField fx:id="mStart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <TextField fx:id="mLunchStart" layoutX="147.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <TextField fx:id="mLunchEnd" layoutX="236.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="tStart" layoutX="147.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <TextField fx:id="tLunchStart" layoutX="236.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="tLunchEnd" layoutX="311.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="mEnd" layoutX="400.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="wStart" layoutX="133.0" layoutY="148.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="wLunchStart" layoutX="222.0" layoutY="148.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="wLunchEnd" layoutX="311.0" layoutY="148.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="wEnd" layoutX="400.0" layoutY="148.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="thStart" layoutX="133.0" layoutY="209.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="thLunchStart" layoutX="222.0" layoutY="209.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="thLunchEnd" layoutX="311.0" layoutY="209.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="thEnd" layoutX="400.0" layoutY="209.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="fStart" layoutX="133.0" layoutY="269.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <TextField fx:id="fLunchStart" layoutX="219.0" layoutY="269.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <TextField fx:id="fLunchEnd" layoutX="308.0" layoutY="269.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <TextField fx:id="fEnd" layoutX="397.0" layoutY="269.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <TextField fx:id="mEnd" layoutX="144.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="61.0" promptText="hh:mm" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-   </center>
-   <bottom>
-      <Button fx:id="calculateButton" mnemonicParsing="false" onAction="#calcTotalTime" prefHeight="25.0" style="-fx-background-color: #fafafc;" text="Calculate Hours" BorderPane.alignment="CENTER">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <BorderPane.margin>
-            <Insets bottom="5.0" top="5.0" />
-         </BorderPane.margin></Button>
-   </bottom>
+   </left>
 </BorderPane>

@@ -10,76 +10,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
+
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 public class TimesheetController {
 
         @FXML
-        private TextArea mStart;
-
-        @FXML
-        private TextArea mLunchStart;
-
-        @FXML
-        private TextArea mLunchEnd;
-
-        @FXML
-        private TextArea mEnd;
+        private TextField weekTotal;
 
         @FXML
         private TextArea mondayTotal;
 
         @FXML
-        private TextArea tStart;
-
-        @FXML
-        private TextArea tLunchStart;
-
-        @FXML
-        private TextArea tLunchEnd;
-
-        @FXML
-        private TextArea tEnd;
-
-        @FXML
         private TextArea tuesdayTotal;
-
-        @FXML
-        private TextArea wStart;
-
-        @FXML
-        private TextArea wLunchStart;
-
-        @FXML
-        private TextArea thLunchStart;
-
-        @FXML
-        private TextArea thStart;
-
-        @FXML
-        private TextArea wEnd;
-
-        @FXML
-        private TextArea wLunchEnd;
-
-        @FXML
-        private TextArea fEnd;
-
-        @FXML
-        private TextArea fLunchEnd;
-
-        @FXML
-        private TextArea fLunchStart;
-
-        @FXML
-        private TextArea fStart;
-
-        @FXML
-        private TextArea thEnd;
-
-        @FXML
-        private TextArea thLunchEnd;
 
         @FXML
         private TextArea fridayTotal;
@@ -89,6 +36,63 @@ public class TimesheetController {
 
         @FXML
         private TextArea wednesdayTotal;
+
+        @FXML
+        private TextField mStart;
+
+        @FXML
+        private TextField mLunchStart;
+
+        @FXML
+        private TextField mLunchEnd;
+
+        @FXML
+        private TextField mEnd;
+
+        @FXML
+        private TextField tStart;
+
+        @FXML
+        private TextField tLunchStart;
+
+        @FXML
+        private TextField tLunchEnd;
+
+        @FXML
+        private TextField wStart;
+
+        @FXML
+        private TextField wLunchStart;
+
+        @FXML
+        private TextField wLunchEnd;
+
+        @FXML
+        private TextField wEnd;
+
+        @FXML
+        private TextField thStart;
+
+        @FXML
+        private TextField thLunchStart;
+
+        @FXML
+        private TextField thLunchEnd;
+
+        @FXML
+        private TextField thEnd;
+
+        @FXML
+        private TextField fStart;
+
+        @FXML
+        private TextField fLunchStart;
+
+        @FXML
+        private TextField fLunchEnd;
+
+        @FXML
+        private TextField fEnd;
 
         private long workHour;
         private long lunchHour;
@@ -107,6 +111,7 @@ public class TimesheetController {
                        // friday = new Day("Friday", fStart.getText(), fEnd.getText(), fLunchStart.getText(), fLunchEnd.getText());
 
                 fullWeek.add(monday);
+
                // fullWeek.add(tuesday);
                // fullWeek.add(wednesday);
               //  fullWeek.add(thursday);
@@ -114,19 +119,33 @@ public class TimesheetController {
         }
 
 
+        /**
+         * This method calculates the hours worked for each Day object and returns true as long as it doesn't
+         * thrown an exception
+         * @return boolean true if successful; false if not successful
+         */
         public void calculateHoursWorked(){
 
                 addDaysToList();
 
                 try {
                         for (Day day : fullWeek) {
+
                                 workHour = calc.findTotalWorkTime(day.getStart(), day.getEnd());
                                 lunchHour = calc.findTotalLunch(day.getLunchStart(), day.getLunchEnd());
                                 day.setTotalWorkHours(calc.calculateHoursWorked(workHour, lunchHour));
                         }
                 } catch(NullPointerException e){
-                        displayAlert(AlertType.ERROR, "Missing or Incorrect Entry", "Please review your timesheet and ensure all fields "
+                        displayAlert(AlertType.ERROR, "Missing or Incorrect Entry",
+                                "Please review your timesheet and ensure all fields "
                                 +"have been completed in a 24-hour hh:mm format");
+                        fullWeek.clear();
+
+                } catch (DateTimeParseException e){
+                        displayAlert(AlertType.ERROR, "Missing or Incorrect Entry",
+                                "Please review your timesheet and ensure all fields "
+                                +"have been completed in a 24-hour hh:mm format");
+                        fullWeek.clear();
                 }
         }
 
@@ -135,17 +154,19 @@ public class TimesheetController {
                 alert.setTitle(title);
                 alert.setContentText(message);
                 alert.showAndWait();
+
         }
 
         @FXML
         void calcTotalTime(ActionEvent event){
 
-              calculateHoursWorked();
-              mondayTotal.setText(String.valueOf(monday.getTotalWorkHours()));
-              //tuesdayTotal.setText(String.valueOf(tuesday.getTotalWorkHours()));
-              //wednesdayTotal.setText(String.valueOf(wednesday.getTotalWorkHours()));
-              //thursdayTotal.setText(String.valueOf(thursday.getTotalWorkHours()));
-              //fridayTotal.setText(String.valueOf(friday.getTotalWorkHours()));
+             calculateHoursWorked();
+                      mondayTotal.setText(String.valueOf(monday.getTotalWorkHours()));
+                      //tuesdayTotal.setText(String.valueOf(tuesday.getTotalWorkHours()));
+                      //wednesdayTotal.setText(String.valueOf(wednesday.getTotalWorkHours()));
+                      //thursdayTotal.setText(String.valueOf(thursday.getTotalWorkHours()));
+                      //fridayTotal.setText(String.valueOf(friday.getTotalWorkHours()));
+
         }
     }
 

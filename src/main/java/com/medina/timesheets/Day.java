@@ -2,7 +2,7 @@ package com.medina.timesheets;
 
 /**
  * This class holds all fields for a day, including getters and setters.
- * All calculations are handled in the TimeshetCalculations Class.
+ * All calculations are handled in the TimesheetCalculations Class.
  */
 public class Day {
 
@@ -59,5 +59,10 @@ public class Day {
 
     public float getTotalWorkHours(){
         return totalWorkHours;
+    }
+
+    @Override
+    public String toString(){
+        return ("Day: " + getDay() + " Start: " + getStart() + " End: " + getEnd() + " Lunch Start: " + getLunchStart() + " Lunch End: " + getLunchEnd());
     }
 }

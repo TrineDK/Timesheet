@@ -1,6 +1,6 @@
-Fix fields so you can tab from one ot the next
+Fix fields so you can tab from one ot the next - Done
 
-Clear member variables if input throws an exception
+Clear member variables if input throws an exception - Done
 
 Write JUnit tests
 

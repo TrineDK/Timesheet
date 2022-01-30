@@ -1,1 +1,9 @@
-Fix fields in scene builder. The parse method needs the format to be hh:mm (you must have a colon).
+Fix fields so you can tab from one ot the next
+
+Clear member variables if input throws an exception
+
+Write JUnit tests
+
+Add a button to clear all fields
+
+Add a total hours worked for the week - include warning if greater than 40 hours
