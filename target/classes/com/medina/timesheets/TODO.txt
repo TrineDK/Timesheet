@@ -1,9 +1,8 @@
-Fix fields so you can tab from one ot the next
-
-Clear member variables if input throws an exception
-
-Write JUnit tests
-
-Add a button to clear all fields
-
-Add a total hours worked for the week - include warning if greater than 40 hours
+-Find a way to clear member variables if one fails to parse - right now correcting the entry and resubmitting does not resubmit the updated info
+-Write JUnit tests
+-Finish exception handling - hours worked must be between 0 & 24
+-Set up tab function between fields
+-Create total hours for the week (need text field)
+-Create button to clear form
+-Create overtime warning if total work week hours exceed 40 hrs
+-Background color could be better
